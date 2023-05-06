@@ -8,9 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="MainApp" />
         <module name="TrackingApp" />
-        <module name="Models" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Models" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

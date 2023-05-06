@@ -1,6 +1,6 @@
-package com.bukowskiprzemyslaw.mainapp.models;
+package com.bukowskiprzemyslaw.trackingapp.models;
 
-import com.bukowskiprzemyslaw.mainapp.entity.Event;
+import com.bukowskiprzemyslaw.trackingapp.entity.Event;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,10 @@ public class EventList {
 
     public List<Event> getEvents() {
         return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     // standard constructor and getter/setter

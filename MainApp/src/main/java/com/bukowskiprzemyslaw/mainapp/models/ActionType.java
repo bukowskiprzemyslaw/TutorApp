@@ -1,4 +1,4 @@
-package com.bukowskiprzemyslaw.models;
+package com.bukowskiprzemyslaw.mainapp.models;
 
 public enum ActionType {
 

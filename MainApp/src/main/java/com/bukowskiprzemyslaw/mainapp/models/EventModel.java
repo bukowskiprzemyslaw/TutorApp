@@ -1,4 +1,6 @@
-package com.bukowskiprzemyslaw.models;
+package com.bukowskiprzemyslaw.mainapp.models;
+
+import com.bukowskiprzemyslaw.mainapp.models.ActionType;
 
 public class EventModel {
 

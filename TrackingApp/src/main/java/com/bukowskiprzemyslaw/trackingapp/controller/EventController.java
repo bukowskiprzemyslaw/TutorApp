@@ -1,13 +1,13 @@
 package com.bukowskiprzemyslaw.trackingapp.controller;
 
-import com.bukowskiprzemyslaw.models.EventModel;
+import com.bukowskiprzemyslaw.trackingapp.models.EventModel;
 import com.bukowskiprzemyslaw.trackingapp.service.EventService;
 import com.bukowskiprzemyslaw.trackingapp.utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.bukowskiprzemyslaw.entity.Event;
+import com.bukowskiprzemyslaw.trackingapp.entity.Event;
 
 
 import java.time.LocalDateTime;
@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
             return ResponseEntity.ok().build();
         }
 
-        @GetMapping("/log")
+        @GetMapping("/logs")
         public ResponseEntity<?> getLog() {
             return ResponseEntity.ok(eventService.findLast20Events());
         }

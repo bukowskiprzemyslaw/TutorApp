@@ -8,13 +8,13 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
-import com.bukowskiprzemyslaw.models.ActionType;
+import com.bukowskiprzemyslaw.mainapp.models.ActionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import com.bukowskiprzemyslaw.models.EventModel;
+import com.bukowskiprzemyslaw.mainapp.models.EventModel;
 
 @Service
 public class TutorServiceImplementation implements TutorService {

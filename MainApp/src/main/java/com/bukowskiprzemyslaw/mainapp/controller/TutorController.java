@@ -1,12 +1,12 @@
 package com.bukowskiprzemyslaw.mainapp.controller;
 
-import com.bukowskiprzemyslaw.entity.Event;
+import com.bukowskiprzemyslaw.mainapp.entity.Event;
 import com.bukowskiprzemyslaw.mainapp.entity.Tutor;
 import com.bukowskiprzemyslaw.mainapp.models.EventList;
 import com.bukowskiprzemyslaw.mainapp.repository.TutorRepository;
 import com.bukowskiprzemyslaw.mainapp.service.TutorService;
-import com.bukowskiprzemyslaw.models.ActionType;
-import com.bukowskiprzemyslaw.models.EventModel;
+import com.bukowskiprzemyslaw.mainapp.models.ActionType;
+import com.bukowskiprzemyslaw.mainapp.models.EventModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -84,6 +84,7 @@ public class TutorController {
             URI uri = new URI("http://localhost:8081/tracking/logs");
 
             ResponseEntity<EventList> result = restTemplate.getForEntity(uri, EventList.class);
+            EventList events = result.getBody();
             model.addAttribute("events", result.getBody().getEvents());
 
         } catch (Exception e) {

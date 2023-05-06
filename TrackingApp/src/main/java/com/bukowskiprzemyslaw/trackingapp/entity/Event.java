@@ -1,8 +1,8 @@
-package com.bukowskiprzemyslaw.entity;
+package com.bukowskiprzemyslaw.trackingapp.entity;
 
-import com.bukowskiprzemyslaw.models.ActionType;
-
+import com.bukowskiprzemyslaw.trackingapp.models.ActionType;
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,6 +29,14 @@ public class Event {
     }
     // getters and setters
 
+
+    public Long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
+    }
 
     public String getIpAddress() {
         return ipAddress;

@@ -1,6 +1,6 @@
 package com.bukowskiprzemyslaw.trackingapp.repository;
 
-import com.bukowskiprzemyslaw.entity.Event;
+import com.bukowskiprzemyslaw.trackingapp.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
