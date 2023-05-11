@@ -10,7 +10,7 @@
 </head>
 <body>
 <div th:switch="${tutors}">
-    <h2 th:case="null">Nie dodałeś żadnych trenerów</h2>
+    <h2 th:case="null">Nie dodałeś żadnych Trenerów</h2>
     <div th:case="*">
         <h2>Trenerzy</h2>
 <table class="table table-bordered table-striped">
@@ -31,14 +31,14 @@
         <td th:text="${tutor.email}" />
         <td th:text="${tutor.phoneNumber}" />
         <td>
-            <a th:href="@{/edit/{id}(id=${tutor.id})}" class="btn btn-info">Zauktualizuj</a>
+            <a th:href="@{/edit/{id}(id=${tutor.id})}" class="btn btn-info">Zaktualizuj Trenera</a>
 
-            <a th:href="@{/delete/{id}(id=${tutor.id})}" class="btn btn-danger ml-2">Usuń</a>
+            <a th:href="@{/delete/{id}(id=${tutor.id})}" class="btn btn-danger ml-2">Usuń Trenera</a>
         </td>
     </tr>
     </tbody>
 </table></div>
 </div>
-    <p><a href="/newtutor">Dodaj nowego trenera</a></p>
+    <p><a href="/newtutor">Dodaj nowego Trenera</a></p>
 </body>
 </html>

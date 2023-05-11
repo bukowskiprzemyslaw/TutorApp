@@ -27,8 +27,21 @@ public class TutorServiceImplementation implements TutorService {
     private TutorRepository tutorRepository;
 
     @Override
-    public List < Tutor > fetchTutorList() {
-        return tutorRepository.findAll();
+    public List<Tutor> fetchTutorList() {
+        List<Tutor> tutorList = tutorRepository.findAll();
+
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            URI uri = new URI("http://localhost:8081/tracking/event");
+
+            EventModel eventModel = new EventModel(ActionType.VISIT_TUTORS, null);
+
+            ResponseEntity<Void> result = restTemplate.postForEntity(uri, eventModel, Void.class);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+
+        return tutorList;
     }
 
     @Override
@@ -62,9 +75,6 @@ public class TutorServiceImplementation implements TutorService {
             System.out.println("Error");
         }
     }
-
-
-
 
     @Override
     public Tutor fetchTutorById(Long id) {
