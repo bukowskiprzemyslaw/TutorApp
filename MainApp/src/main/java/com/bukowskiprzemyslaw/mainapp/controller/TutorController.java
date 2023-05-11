@@ -73,7 +73,7 @@ public class TutorController {
     @GetMapping("/delete/{id}")
     public String deleteTutor(@PathVariable("id") long id, Model model) {
         Tutor tutor = tutorService.fetchTutorById(id);
-        tutorService.deleteTutorById(id);
+        tutorService.deleteTutor(tutor);
         return "redirect:/";
     }
 

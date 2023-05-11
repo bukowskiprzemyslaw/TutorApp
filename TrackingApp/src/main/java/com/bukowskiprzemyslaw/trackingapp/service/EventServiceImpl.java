@@ -29,7 +29,7 @@ public class EventServiceImpl implements EventService {
 @Override
     public EventList findLast20Events() {
         Page<Event> result = eventRepository.findAll(
-                PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "actionDate")));
+                PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "actionDate")));
         EventList eventList = new EventList();
         eventList.setEvents(result.getContent());
         return eventList;

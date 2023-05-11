@@ -13,6 +13,6 @@ public interface TutorService {
 
     Tutor fetchTutorById(Long id);
 
-    void deleteTutorById(Long id);
+    void deleteTutor(Tutor tutor);
 
 }
