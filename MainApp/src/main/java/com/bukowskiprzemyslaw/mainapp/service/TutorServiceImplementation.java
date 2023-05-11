@@ -45,6 +45,21 @@ public class TutorServiceImplementation implements TutorService {
         }
     }
 
+    public void updateTutor(Tutor tutor) {
+        Tutor persistedTutor = this.tutorRepository.save(tutor);
+
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            URI uri = new URI("http://localhost:8081/tracking/event");
+
+            EventModel eventModel = new EventModel(ActionType.EDIT_TUTOR, persistedTutor.getId());
+
+            ResponseEntity<Void> result = restTemplate.postForEntity(uri, eventModel, Void.class);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+    }
+
 
 
 

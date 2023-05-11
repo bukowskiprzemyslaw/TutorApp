@@ -66,7 +66,7 @@ public class TutorController {
             return "update-tutor";
         }
 
-        tutorService.saveTutor(tutor);
+        tutorService.updateTutor(tutor);
         return "redirect:/";
     }
 
