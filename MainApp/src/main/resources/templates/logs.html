@@ -22,11 +22,14 @@
   </thead>
   <tbody>
   <tr th:each="event: ${events}">
+
     <td th:text="${event.eventId}" />
     <td th:text="${event.ipAddress}" />
     <td th:text="${event.actionType}" />
     <td th:text="${event.tutorId}" />
     <td th:text="${event.actionDate}" />
+    <td>
+      <a th:href="@{/edit/{id}(id=${event.tutorId})}">Odwiedź tutora</a>
     </td>
   </tr>
   </tbody>

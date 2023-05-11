@@ -15,6 +15,7 @@ import java.util.List;
 public class EventServiceImpl implements EventService {
 
     private final EventRepository eventRepository;
+    private static Long idCounter = 0L;
 
     @Autowired
     public EventServiceImpl(EventRepository eventRepository) {
@@ -23,6 +24,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void saveEvent(Event event) {
+        event.setEventId(++idCounter);
         eventRepository.save(event);
 
     }
