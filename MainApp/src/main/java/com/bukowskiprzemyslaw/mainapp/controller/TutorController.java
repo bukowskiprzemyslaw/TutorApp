@@ -29,6 +29,11 @@ public class TutorController {
     @Autowired
     private TutorService tutorService;
 
+    @GetMapping("/")
+    public String homePage(Model model) {
+        return "index";
+    }
+
     @GetMapping("/newtutor")
     public String showAddTutorForm(Tutor tutor) {
         return "add-tutor";
@@ -41,13 +46,13 @@ public class TutorController {
         }
 
         tutorService.saveTutor(tutor);
-        return "redirect:/";
+        return "redirect:/tutorlist";
     }
 
-    @GetMapping("/")
+    @GetMapping("/tutorlist")
     public String showTutorList(Model model) {
         model.addAttribute("tutors", tutorService.fetchTutorList());
-        return "index";
+        return "tutor-list";
     }
 
     @GetMapping("/edit/{id}")
@@ -67,14 +72,14 @@ public class TutorController {
         }
 
         tutorService.updateTutor(tutor);
-        return "redirect:/";
+        return "redirect:/tutorlist";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteTutor(@PathVariable("id") long id, Model model) {
         Tutor tutor = tutorService.fetchTutorById(id);
         tutorService.deleteTutor(tutor);
-        return "redirect:/";
+        return "redirect:/tutorlist";
     }
 
     @GetMapping("/tracking/logs")

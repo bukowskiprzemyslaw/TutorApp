@@ -9,14 +9,14 @@
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<li class="nav-item me-2">
-    <a class="nav-link" th:href="@{/newtutor}"
-       th:classappend="${#httpServletRequest.getRequestURI() == '/newtutor' ? 'active' : ''}">Dodaj trenera
-    </a>
-</li>
+<div th:switch="${tutors}">
+    <h2 th:case="null">Nie dodałeś żadnych Trenerów</h2>
+    <div th:case="*">
+        <h2>Trenerzy</h2>
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>E-Mail</th>
@@ -25,22 +25,21 @@
     </thead>
     <tbody>
     <tr th:each="tutor: ${tutors}">
+        <td th:text="${tutor.id}" />
         <td th:text="${tutor.firstName}" />
         <td th:text="${tutor.lastName}" />
         <td th:text="${tutor.email}" />
         <td th:text="${tutor.phoneNumber}" />
         <td>
-            <a th:href="@{/updateTutor(Id=${tutor.tutorId})}" class="btn btn-info">Update</a>
+            <a th:href="@{/edit/{id}(id=${tutor.id})}" class="btn btn-info">Zaktualizuj Trenera</a>
 
-            <a th:href="@{/deleteTutor(Id=${tutor.tutorId})}" class="btn btn-danger ml-2">Delete</a>
+            <a th:href="@{/delete/{id}(id=${tutor.id})}" class="btn btn-danger ml-2">Usuń Trenera</a>
         </td>
     </tr>
     </tbody>
-
-</table>
+</table></div>
 </div>
-
-
-List of ISA Tutors
+    <p><a href="/newtutor">Dodaj nowego Trenera</a></p>
+    <p><a href="/">Strona główna</a></p>
 </body>
 </html>
