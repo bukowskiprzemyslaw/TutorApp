@@ -21,10 +21,17 @@ import org.yaml.snakeyaml.events.Event;
 @Service
 public class TutorServiceImplementation implements TutorService {
 
-    private static Long idCounter = 0L;
-
     @Autowired
     private TutorRepository tutorRepository;
+
+    @Autowired
+    public TutorServiceImplementation(TutorRepository tutorRepository) {
+        this.tutorRepository = tutorRepository;
+    }
+
+
+    public void setTutorRepository(TutorRepository tutorRepository) {
+    }
 
     @Override
     public List<Tutor> fetchTutorList() {
@@ -46,7 +53,6 @@ public class TutorServiceImplementation implements TutorService {
 
     @Override
     public void saveTutor(Tutor tutor) {
-        tutor.setId(++idCounter);
         Tutor persistedTutor = this.tutorRepository.save(tutor);
 
         try {
